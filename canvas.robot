@@ -11,7 +11,7 @@ Library             RPA.JSON
 
 *** Variables ***
 ${JSON_DIRECTORY}           ${CURDIR}${/}output${/}json/
-${CANVAS_TOKEN}             13402~lPA95yvSojhrLIVjDvXrPN53M4q9jkyDFO4hpDSAvb8JEfQQrehcO0ZZHFeIiBvk
+${CANVAS_TOKEN}             INSERT_CANVAS_TOKEN
 ${CANVAS_ASSIGNMENTS}       https://canvas.laurea.fi/api/v1/courses/5375/assignments?access_token=${CANVAS_TOKEN}
 ${CANVAS_COURSE_TODO}       https://canvas.laurea.fi/api/v1/courses/5375/todo?access_token=${CANVAS_TOKEN}
 ${CANVAS_TODO}
