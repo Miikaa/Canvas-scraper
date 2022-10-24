@@ -8,6 +8,7 @@ Library             RPA.RobotLogListener
 Library             SeleniumLibrary
 Library             RPA.JSON
 Library             RPA.Tables
+Library             RPA.Dialogs
 
 
 *** Variables ***
@@ -41,8 +42,19 @@ Get assignments
 
 Filter json
     ${json}=    Get assignments
-    ${json}=    Get values from JSON    ${json}    $.[*].context_name
-    RETURN    ${json}
+    ${courses}=    Get values from JSON
+    ...    ${json}
+    ...    $.[*].context_name
+    ${course_id}=    Get values from JSON
+    ...    ${json}
+    ...    $.[*].course_id
+    ${result}=    Catenate
+    ...    "Courses " + ${courses} " + course ids " +
+    ...    ${course_id}
+    Log    ${result}    console=${True}
+    ${table}=    Create Table    [{"course_name":"${courses}", "course_id":"${course_id}"}]
+    Write table to CSV    ${table}    ${JSON_DIRECTORY}/table.csv
+    RETURN    ${result}
 
 Store the json
     Create Directory    ${JSON_DIRECTORY}    parents=True
