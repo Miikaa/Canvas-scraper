@@ -21,7 +21,7 @@ ${CANVAS_TODO}
 
 
 *** Tasks ***
-Store the latest tweets by given user name
+Store the latest todo:s
     Open Canvas homepage
     Get assignments
     Store the json
