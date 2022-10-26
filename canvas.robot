@@ -13,7 +13,7 @@ Library             RPA.Dialogs
 
 *** Variables ***
 ${JSON_DIRECTORY}           ${CURDIR}${/}output
-${CANVAS_TOKEN}             insert_token_here
+${CANVAS_TOKEN}             13402~rsBTJyBcqsC8QWsmF4cIa1EAdqPH7UWg6d5mlzss8bgYbQqHfsttFJU3STeL7GW4
 ${CANVAS_ASSIGNMENTS}       https://canvas.laurea.fi/api/v1/courses/5375/assignments?access_token=${CANVAS_TOKEN}
 ${CANVAS_COURSE_TODO}       https://canvas.laurea.fi/api/v1/courses/5375/todo?access_token=${CANVAS_TOKEN}
 ${CANVAS_TODO}
@@ -41,15 +41,12 @@ Get assignments
 
 Filter json
     ${json}=    Get assignments
-    ${courses}=    Get values from JSON
-    ...    ${json}
-    ...    $.[*].context_name
     ${course_id}=    Get values from JSON
     ...    ${json}
     ...    $.[*].course_id
     ${assignment_id}=    Get values from JSON
     ...    ${json}
-    ...    $[?(@.assignment.points_possible > 2)].assignment.[*]
+    ...    $[?(@.assignment.points_possible > 2)].[*]
     ${result}=    Delete from JSON    ${assignment_id}    $..lock_at
     ${result}=    Delete from JSON    ${assignment_id}    $..unlock_at
     ${result}=    Delete from JSON    ${assignment_id}    $..grading_type
@@ -100,7 +97,14 @@ Filter json
     ${result}=    Delete from JSON    ${assignment_id}    $..require_lockdown_browser
     ${result}=    Delete from JSON    ${assignment_id}    $..all_dates
     ${result}=    Delete from JSON    ${assignment_id}    $..peer_review_count
-    ${result}=    Delete from JSON    ${assignment_id}    $..peer_reviews_assign_at
+    ${result}=    Delete from JSON    ${assignment_id}    $..context_type
+    ${result}=    Delete from JSON    ${assignment_id}    $..type
+    ${result}=    Delete from JSON    ${assignment_id}    $..ignore
+    ${result}=    Delete from JSON    ${assignment_id}    $..ignore_permanently
+    ${result}=    Delete from JSON    ${assignment_id}    $..description
+    ${result}=    Delete from JSON    ${assignment_id}    $..published
+    ${result}=    Delete from JSON    ${assignment_id}    $..anonymous_submissions
+    ${result}=    Delete from JSON    ${assignment_id}    $..quiz_id
 
     Log    ${result}    console=${True}
     RETURN    ${result}
