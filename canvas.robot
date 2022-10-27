@@ -13,7 +13,7 @@ Library             RPA.Dialogs
 
 *** Variables ***
 ${JSON_DIRECTORY}           ${CURDIR}${/}output
-${CANVAS_TOKEN}             13402~rsBTJyBcqsC8QWsmF4cIa1EAdqPH7UWg6d5mlzss8bgYbQqHfsttFJU3STeL7GW4
+${CANVAS_TOKEN}             your_token_here
 ${CANVAS_ASSIGNMENTS}       https://canvas.laurea.fi/api/v1/courses/5375/assignments?access_token=${CANVAS_TOKEN}
 ${CANVAS_COURSE_TODO}       https://canvas.laurea.fi/api/v1/courses/5375/todo?access_token=${CANVAS_TOKEN}
 ${CANVAS_TODO}
