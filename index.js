@@ -2,7 +2,7 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const { EmbedBuilder } = require('discord.js');
 const fs = require('fs');
 
-const TOKEN = "MTAzNTE4NjQwMDgzODAyNTI0Ng.GYmtQi.k7bS5pqcotnwUUb8b2eOCiZzEhOzBVMx2TXAwk";
+const TOKEN = "INSERT_TOKEN_HERE";
 const jsonFile = JSON.parse(fs.readFileSync('./output/todo.json'));
 
 const createEmbed = (index) => {
