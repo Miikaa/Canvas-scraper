@@ -12,7 +12,7 @@ Library             RPA.Tables
 
 *** Variables ***
 ${JSON_DIRECTORY}           ${CURDIR}${/}output
-${CANVAS_TOKEN}             INSERT_CANVAS_TOKEN_HERE
+${CANVAS_TOKEN}             13402~RtLR2ZC4P8xCzQC3rvMXWzKGhU920L2bSmAikXJkJtkAdjwmJ0nmiWaTjUKFXGek
 ${CANVAS_ASSIGNMENTS}       https://canvas.laurea.fi/api/v1/courses/5375/assignments?access_token=${CANVAS_TOKEN}
 ${CANVAS_COURSE_TODO}       https://canvas.laurea.fi/api/v1/courses/5375/todo?access_token=${CANVAS_TOKEN}
 ${CANVAS_TODO}
