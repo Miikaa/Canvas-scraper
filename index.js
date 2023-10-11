@@ -9,7 +9,7 @@ const createEmbed = (index) => {
     const data = jsonFile[index];
     const courseName = data.context_name;
     const assignmentName = data.assignment.name;
-    const assignmentUrl = data.html_url;
+    const assignmentUrl = data.html_url.slice(0, -7);
     const dueAt = data.assignment.due_at.slice(0, -10);
 
     return new EmbedBuilder()
